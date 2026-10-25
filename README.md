@@ -11,7 +11,7 @@ git clone https://github.com/PXL-Systems-Advanced/todo-app.git
 
 It stores its data in SQLite. When the variables `MYSQL_HOST`, `MYSQL_USER`, `MYSQL_PASSWORD` and `MYSQL_DB` are set, it uses MySQL instead. `MYSQL_PASSWORD_FILE` can replace `MYSQL_PASSWORD`: it names a file that holds the password, such as a Compose secret.
 
-The application needs Node.js 24 or later, for its built-in SQLite module. You run it in the containers the labs describe, so you do not need Node.js on your laptop.
+The application needs Node.js 24.22.1 or later. Node.js 24 provides its built-in SQLite module; 24.22.1 is the first release without the Brotli decoder flaw CVE-2026-111497, which `express.json()` can reach from a request body. Build the image with `docker build --pull` so the `node:24-alpine` base is current. You run it in the containers the labs describe, so you do not need Node.js on your laptop.
 
 Course: <https://pxl-systems-advanced.github.io/docker-labs/>
 
